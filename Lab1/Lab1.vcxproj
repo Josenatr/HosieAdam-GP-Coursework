@@ -80,7 +80,6 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="obj_loader.cpp" />
     <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="skybox.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
@@ -92,14 +91,35 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="obj_loader.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="skybox.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\res\shader.frag" />
-    <None Include="..\res\shader.vert" />
+    <None Include="..\res\Shaders\customShader.frag" />
+    <None Include="..\res\Shaders\customShader.geom" />
+    <None Include="..\res\Shaders\customShader.vert" />
+    <None Include="..\res\Shaders\fog.frag" />
+    <None Include="..\res\Shaders\fog.vert" />
+    <None Include="..\res\Shaders\shader.frag" />
+    <None Include="..\res\Shaders\shader.vert" />
+    <None Include="..\res\Shaders\shaderBlur.frag" />
+    <None Include="..\res\Shaders\shaderBlur.vert" />
+    <None Include="..\res\Shaders\shaderGeoText.frag" />
+    <None Include="..\res\Shaders\shaderGeoText.geom" />
+    <None Include="..\res\Shaders\shaderGeoText.vert" />
+    <None Include="..\res\Shaders\shaderOL.frag" />
+    <None Include="..\res\Shaders\shaderOL.vert" />
+    <None Include="..\res\Shaders\shaderReflection.frag" />
+    <None Include="..\res\Shaders\shaderReflection.vert" />
+    <None Include="..\res\Shaders\shaderRim.frag" />
+    <None Include="..\res\Shaders\shaderRim.vert" />
+    <None Include="..\res\Shaders\shaderRimToon.frag" />
+    <None Include="..\res\Shaders\shaderRimToon.vert" />
+    <None Include="..\res\Shaders\shaderToon.frag" />
+    <None Include="..\res\Shaders\shaderToon.vert" />
+    <None Include="..\res\Shaders\skybox.frag" />
+    <None Include="..\res\Shaders\skybox.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

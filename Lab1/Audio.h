@@ -41,14 +41,16 @@ class Audio
 public:
 	Audio();
 	~Audio();
-	unsigned int loadSound(const char* filename);
-	void deleteSound(unsigned int id);
-	void playSound(unsigned int id);
-	void playSound(unsigned int id, glm::vec3& pos);
-	void stopSound(unsigned int id);
-	void setlistener(glm::vec3& pos, glm::vec3& camLookAt);
+	unsigned int loadSound(const char* filename); //used to load a sound using the filename
+	void deleteSound(unsigned int id); //used to delete a sound
+	void playSound(unsigned int id); //used to play a sound
+	void playSound(unsigned int id, glm::vec3& pos); //used to play a sound at a certain position
+	void stopSound(unsigned int id); //used to stop a sound
+	void setlistener(glm::vec3& pos, glm::vec3& camLookAt); //used to set a listener at a certain position
 
 private:
 	
 };
+
+
 

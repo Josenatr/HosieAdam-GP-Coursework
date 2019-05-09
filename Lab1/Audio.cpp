@@ -5,14 +5,14 @@ Audio::Audio()
 	device = alcOpenDevice(NULL); //open sound card
 	if (device == NULL)
 	{
-		std::cout << "cannot open sound card" << std::endl;
+		std::cout << "cannot open sound card" << std::endl; //if device is NULL we print an error message to the console
 	}
 
 	context = alcCreateContext(device, NULL);
 
 	if (context == NULL)
 	{
-		std::cout << "cannot open context" << std::endl;
+		std::cout << "cannot open context" << std::endl; //if context is NULL we print an error message to the console
 	}
 
 	alcMakeContextCurrent(context);

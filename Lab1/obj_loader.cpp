@@ -76,6 +76,40 @@ void IndexedModel::CalcNormals()
         normals[i] = glm::normalize(normals[i]);
 }
 
+void IndexedModel::CalcTangents()
+{
+	for (unsigned int i = 0; i < indices.size(); i += 3)
+	{
+		int i0 = indices[i];
+		int i1 = indices[i + 1];
+		int i2 = indices[i + 2];
+
+		glm::vec3 edge1 = positions[i1] - positions[i0];
+		glm::vec3 edge2 = positions[i2] - positions[i0];
+
+		float deltaU1 = texCoords[i1].x - texCoords[i0].x;
+		float deltaU2 = texCoords[i2].x - texCoords[i0].x;
+		float deltaV1 = texCoords[i1].y - texCoords[i0].y;
+		float deltaV2 = texCoords[i2].y - texCoords[i0].y;
+
+		float dividend = (deltaU1 * deltaV2 - deltaU2 * deltaV1);
+		float f = dividend == 0.0f ? 0.0f : 1.0f / dividend;
+
+		glm::vec3 tangent = glm::vec3(
+			f * (deltaV2 * edge1.x - deltaV1 * edge2.x),
+			f * (deltaV2 * edge1.y - deltaV1 * edge2.y),
+			f * (deltaV2 * edge1.z - deltaV1 * edge2.z));
+
+		tangents[i0] += tangent;
+		tangents[i1] += tangent;
+		tangents[i2] += tangent;
+	}
+
+	for (unsigned int i = 0; i < tangents.size(); i++)
+		tangents[i] = glm::normalize(tangents[i]);
+
+}
+
 IndexedModel OBJModel::ToIndexedModel()
 {
     IndexedModel result;
@@ -92,7 +126,7 @@ IndexedModel OBJModel::ToIndexedModel()
     
     std::map<OBJIndex, unsigned int> normalModelIndexMap;
     std::map<unsigned int, unsigned int> indexMap;
-    
+
     for(unsigned int i = 0; i < numIndices; i++)
     {
         OBJIndex* currentIndex = &OBJIndices[i];

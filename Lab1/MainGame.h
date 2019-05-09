@@ -16,19 +16,22 @@ public:
 	MainGame();
 	~MainGame();
 
-	void run();
+	void run(); //method used to run game
 	
 
 private:
 
-	void initialiseSystems();
-	void processInput();
-	void gameLoop();
-	void drawGame();
-	bool checkCollision(glm::vec3&, float, glm::vec3, float);
-	void updateModelTransform();
+	void initialiseSystems(); //method used to initialise game systems
+	void processInput(); //method used to process key inputs
+	void gameLoop(); //method used for game loop
+	void drawGame(); //method used to draw game
+	bool checkCollision(glm::vec3&, float, glm::vec3, float); //boolean method used for checking if collision has occurred
+	void updateModelTransform(); //method used to allow ability to update model transform outside drawGame()
+	void setExplosionValues();
+	void setReflectionValues();
+	void setCustomValues();
 
-	Display _gameDisplay;
+	Display _gameDisplay; 
 	GameState _gameState;
 	Mesh mesh1;
 	Mesh mesh2;
@@ -41,25 +44,34 @@ private:
 	Transform transform2;
 	Transform transform3;
 	Shader shader;
+	Shader shaderExp;
+	Shader shaderReflection;
+	Shader shaderCustom;
 	Audio audioDevice;
 
-	unsigned int changeSound;
+
+	//unsigned int used for audio within game
 	unsigned int backGroundMusic1;
-	unsigned int backGroundMusic2;
 	unsigned int currentMusic;
-	unsigned int catNoise;
-	unsigned int deerNoise;
-	unsigned int ratNoise;
-	unsigned int cowNoise;
-	unsigned int wolfNoise;
-	unsigned int goatNoise;
 
+	glm::mat4  modelView;
 
-	//the floats used for setting transform 3's position
-	float trans2X;
-	float trans2Y;
-	float trans2Z;
-	float trans2Xrot;
+	float currentShader;
+	float counter;
+	float colorCounter;
+	float redChange;
+	float greenChange;
+	float blueChange;
+	float gammaChange;
+	float refraction;
+
+	//Skybox code
+	void Skybox();
+
+	GLuint skyboxVAO, skyboxVBO, cubemapTexture;
+	vector<std::string> faces;
+	Texture skybox;
+	Shader shaderSkybox;
 
 };
 

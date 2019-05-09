@@ -7,21 +7,24 @@
 struct Vertex
 {
 public:
-	Vertex(const glm::vec3& pos, const glm::vec2& texCoord)
+	Vertex(const glm::vec3& pos, const glm::vec2& texCoord, const glm::vec3& tangent )
 	{
 		this->pos = pos;
 		this->texCoord = texCoord;
 		this->normal = normal;
+		this->tangent = tangent;
 	}
 
-	glm::vec3* GetPos() { return &pos; }
+	glm::vec3* GetPos() { return &pos; }  
 	glm::vec2* GetTexCoord() { return &texCoord; }
 	glm::vec3* GetNormal() { return &normal; }
+	glm::vec3* GetTangent() {return &tangent;}
 
 private:
 	glm::vec3 pos;
 	glm::vec2 texCoord;
 	glm::vec3 normal;
+	glm::vec3 tangent;
 };
 
 struct Sphere
@@ -74,6 +77,7 @@ private:
 		POSITION_VERTEXBUFFER,
 		TEXCOORD_VB,
 		NORMAL_VB,
+		TANGENT_VB,
 		INDEX_VB,
 		NUM_BUFFERS
 	};
