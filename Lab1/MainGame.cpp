@@ -408,7 +408,7 @@ void MainGame::updateModelTransform()
 	transform1.SetRot(glm::vec3(0.0f, 0.0f , 0.0f));
 	transform1.SetScale(glm::vec3(5.0f, 5.0f, 5.0f));
 
-	transform2.SetPos(glm::vec3(50.0f, 0.0f, 15.0f));
+	transform2.SetPos(glm::vec3(10.0f, 0.0f, 15.0f));
 	transform2.SetRot(glm::vec3(0.0f, 180.0f, 0.0f));
 	transform2.SetScale(glm::vec3(5.0f, 5.0f, 5.0f));
 
